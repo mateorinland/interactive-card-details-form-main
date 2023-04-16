@@ -1,0 +1,341 @@
+@import "reset";
+
+$Linear_gradient_active_input_border: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+$Red_input_errors: hsl(0, 100%, 66%);
+$White: hsl(0, 0%, 100%);
+$Light_grayish_violet: hsl(270, 3%, 87%);
+$Dark_grayish_violet: hsl(279, 6%, 55%);
+$Very_dark_violet: hsl(278, 68%, 11%);
+
+body {
+  font-size: 1.125rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-image: url("../images/bg-main-desktop.png");
+  background-repeat: no-repeat;
+  background-size: 100% 34vh;
+}
+
+@media screen and (min-width: 62.5rem) {
+    body {
+        background-image: url("../images/bg-main-mobile.png");
+        background-size: 34vw 100%;
+    }
+}
+
+/* Utilities */
+
+.visually-hidden {
+  display: inline-block;
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1;
+  width: 1;
+  margin: -1;
+  padding: 0;
+  border: 0;
+}
+
+/* Main */
+
+.main-container {
+    display: grid;
+    grid-template-columns: 3rem max-content 3rem;
+    grid-template-rows: repeat(9, 1fr);
+    grid-template-areas:
+    ". card-back card-back"
+    ". card-back card-back"
+    "card-front card-front ."
+    "card-front card-front ."
+    "card-front card-front ."
+    "form-container form-container form-container"
+    "form-container form-container form-container"
+    "form-container form-container form-container"
+    "form-container form-container form-container";
+    place-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .main-container {
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: max-content 1.5rem max-content;
+        min-height: 100vh;
+        grid-template-areas: 
+            "card-front card-front card-front card-front . . form-container form-container form-container form-container"
+            ". . . . . . form-container form-container form-container form-container"
+            ". card-back card-back card-back card-back . form-container form-container form-container form-container";
+        place-content: center;
+        align-items: center;
+    }
+}
+
+.card-front {
+    background-image: url("../images/bg-card-front.png");
+    background-size: cover;
+    color: $White;
+    letter-spacing: 0.1rem;
+    aspect-ratio: 3.65 / 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    grid-area: card-front;
+    z-index: 1;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .card-front {
+        min-width: 28rem;
+        padding: 1.75rem 2rem;
+    }
+}
+
+.card-logo {
+    max-width: 3rem;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .card-logo {
+        max-width: 5rem;
+    }
+}
+
+.card-inner-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-number {
+    font-size: 1.25rem;
+    letter-spacing: 0.1rem;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .card-number {
+        font-size: 2rem;
+    }
+}
+
+.card-bottom {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.card-holder {
+    text-transform: uppercase;
+    font-size: 0.6rem;
+    letter-spacing: 0.1rem;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .card-holder {
+        font-size: 0.9rem;
+    }
+}
+
+.exp-date, .cvc {
+    font-size: 0.6rem;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .exp-date, .cvc {
+        font-size: 0.9rem;
+    }
+    
+}
+
+.card-back {
+    background-image: url("../images/bg-card-back.png");
+    background-size: cover;
+    color: $White;
+    letter-spacing: 0.1rem;
+    aspect-ratio: 3.65 / 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 2.5rem;
+    grid-column: 2 / 4;
+    grid-row: 1 / 4;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .card-back {
+        grid-area: card-back;
+        padding: 4rem;
+    }
+}
+
+    .form-container {
+        grid-area: form-container;
+    }
+
+
+/* Form State */
+
+.form-state {
+    padding: 1rem;
+    color: $Very_dark_violet;
+}
+
+.form-state.hide {
+    display: none;
+}
+
+.fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.label {
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.1rem;
+    display: block;
+}
+
+.input {
+    border: 0.1rem solid $Light_grayish_violet;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.input::placeholder {
+    color: $Light_grayish_violet;
+}
+
+.error-msg {
+    font-size: 0.75rem;
+    color: $Red_input_errors;
+}
+
+.form-bottom {
+    display: grid;
+    grid-template-areas:
+    "date-label date-label cvc-label cvc-label"
+    "month year cvc cvc"
+    "month-error year-error cvc-error cvc-error";
+    grid-column-gap: 0.75rem;
+}
+
+.expdate-month-label {
+    grid-area: date-label;
+}
+
+.cvc-label {
+    grid-area: cvc-label;
+}
+
+.expdate-month-input {
+    grid-area: month;
+    width: 4rem;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .expdate-month-input {
+        width: 5rem;
+    }
+}
+
+.expdate-year-input {
+    grid-area: year;
+    width: 4rem;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .expdate-year-input {
+        width: 5rem;
+    }
+}
+
+.cvc-input {
+    grid-area: cvc;
+    width: 10rem;
+}
+
+@media screen and (min-width: 62.5rem) {
+    .cvc-input {
+        width: 13rem;
+    }
+}
+
+.month-error {
+    grid-area: month-error;
+}
+
+.year-error {
+    grid-area: year-error;
+}
+
+.cvc-error {
+    grid-area: cvc-error;
+}
+
+.btn {
+    border: none;
+    border-radius: 0.5rem;
+    padding-block: 0.5rem;
+    background-color: $Very_dark_violet;
+    color: $White;
+    width: 100%;
+}
+
+/* Completed State */
+
+.completed-state {
+    display: none;
+}
+
+.completed-state.show {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    grid-area: form-container;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.completed-title {
+    text-transform: uppercase;
+    color: $Very_dark_violet;
+    letter-spacing: 0.1rem;
+}
+
+.text {
+    color: $Dark_grayish_violet;
+}
+
+.completed-state .btn {
+    width: 20rem;
+}
+
+/* Footer */
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution-link {
+  color: hsl(228, 45%, 44%);
+}
