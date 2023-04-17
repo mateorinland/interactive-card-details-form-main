@@ -122,7 +122,7 @@ body {
   background-size: 100% 34vh;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   body {
     background-image: url("../images/bg-main-mobile.png");
     background-size: 34vw 100%;
@@ -151,7 +151,7 @@ body {
   align-items: center;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .main-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
@@ -177,7 +177,7 @@ body {
   z-index: 1;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .card-front {
     min-width: 28rem;
     padding: 1.75rem 2rem;
@@ -187,7 +187,7 @@ body {
   max-width: 3rem;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .card-logo {
     max-width: 5rem;
   }
@@ -203,7 +203,7 @@ body {
   letter-spacing: 0.1rem;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .card-number {
     font-size: 2rem;
   }
@@ -220,7 +220,7 @@ body {
   letter-spacing: 0.1rem;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .card-holder {
     font-size: 0.9rem;
   }
@@ -230,7 +230,7 @@ body {
   font-size: 0.6rem;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .exp-date,
   .cvc {
     font-size: 0.9rem;
@@ -250,7 +250,7 @@ body {
   grid-row: 1/4;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .card-back {
     grid-area: card-back;
     padding: 4rem;
@@ -282,6 +282,7 @@ body {
   font-size: 0.75rem;
   letter-spacing: 0.1rem;
   display: block;
+  margin-bottom: 0.5rem;
 }
 
 .input {
@@ -319,12 +320,23 @@ body {
 
 .form-bottom {
   display: grid;
-  grid-template-areas: "date-label date-label cvc-label cvc-label" "month year cvc cvc" "month-error year-error cvc-error cvc-error";
-  grid-column-gap: 0.75rem;
+  grid-template-areas: "expdate-fieldset expdate-fieldset cvc-label cvc-label" "expdate-fieldset expdate-fieldset cvc cvc" "month-error year-error cvc-error cvc-error";
 }
 
-.expdate-month-label {
-  grid-area: date-label;
+.expdate-container {
+  grid-area: expdate-fieldset;
+  display: grid;
+  grid-template-areas: "label label" "month year";
+  gap: 0;
+  padding: 0;
+}
+
+.expdate-legend {
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.1rem;
+  grid-area: label;
+  margin-bottom: 0.5rem;
 }
 
 .cvc-label {
@@ -332,21 +344,21 @@ body {
 }
 
 .expdate-month-input {
-  grid-area: month;
   width: 4rem;
+  grid-area: month;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .expdate-month-input {
     width: 5rem;
   }
 }
 .expdate-year-input {
-  grid-area: year;
   width: 4rem;
+  grid-area: year;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .expdate-year-input {
     width: 5rem;
   }
@@ -356,7 +368,7 @@ body {
   width: 10rem;
 }
 
-@media screen and (min-width: 62.5rem) {
+@media screen and (min-width: 71rem) {
   .cvc-input {
     width: 13rem;
   }

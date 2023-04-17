@@ -22,15 +22,15 @@
     <div class="card-front">
       <img src="./images/card-logo.svg" alt="" class="card-logo">
       <div class="card-inner-container">
-        <p class="card-number">0000 0000 0000 0000</p>
+        <p class="card-number" id="card-number">0000 0000 0000 0000</p>
         <div class="card-bottom">
-          <p class="card-holder">Jane Appleseed</p>
-          <p class="exp-date">00/00</p>
+          <p class="card-holder" id="card-holder">Jane Appleseed</p>
+          <p class="exp-date"><span id="month">00</span>/<span id="year">00</span></p>
         </div>
       </div>
     </div>
     <div class="card-back">
-      <p class="cvc">000</p>
+      <p class="cvc" id="cvc">000</p>
     </div>
     <div class="form-container">
       <form action="" class="form-state" aria-labelledby="form-legend">
@@ -38,22 +38,24 @@
           <legend id="form-legend" class="visually-hidden">Please submit your card details:</legend>
           <div class="form-group">
             <label for="cardholder-input" class="cardholder-label label">Cardholder Name</label>
-            <input type="text" class="cardholder-input input" id="cardholder-input" placeholder="e.g. Jane Appleseed">
+            <input type="text" class="cardholder-input input" id="cardholder-input" placeholder="e.g. Jane Appleseed" onkeyup="copyCardholder(this)">
             <p class="error-msg" id="cardholder-error-msg"></p>
           </div>
           <div class="form-group">
             <label for="cardnumber-input" class="cardnumber-label label">Card Number</label>
-            <input type="text" class="cardnumber-input input" id="cardnumber-input" placeholder="e.g. 1234 5678 9123 0000">
-            <!-- input type is text instead of number for design demo purposes -->
+            <input type="text" inputmode="numeric" class="cardnumber-input input" id="cardnumber-input" placeholder="e.g. 1234 5678 9123 0000" onkeyup="copyCardnumber(this)">
             <p class="error-msg" id="cardnumber-error-msg"></p>
           </div>
           <div class="form-bottom">
-            <label for="expdate-month-input" class="expdate-month-label label" aria-label="Expiration Date Month">Exp. Date (MM/YY)</label>
-            <label for="expdate-year-input" class="expdate-year-label label visually-hidden" aria-label="Expiration Date Year"></label>
+            <fieldset class="expdate-container fieldset">
+              <legend class="expdate-legend">Exp. Date (MM/YY)</legend>
+              <label for="expdate-month-input" class="expdate-month-label label visually-hidden" aria-label="Expiration Date Month"></label>
+              <input type="text" inputmode="numeric" class="expdate-month-input input" id="expdate-month-input" placeholder="MM" onkeyup="copyMonth(this)">
+              <label for="expdate-year-input" class="expdate-year-label label visually-hidden" aria-label="Expiration Date Year"></label>
+              <input type="text" inputmode="numeric" class="expdate-year-input input" id="expdate-year-input" placeholder="YY" onkeyup="copyYear(this)">
+            </fieldset>
             <label for="cvc-input" class="cvc-label label">CVC</label>
-            <input type="number" class="expdate-month-input input" id="expdate-month-input" placeholder="MM">
-            <input type="number" class="expdate-year-input input" id="expdate-year-input" placeholder="YY">
-            <input type="number" class="cvc-input input" id="cvc-input" placeholder="e.g. 123">
+            <input type="text" inputmode="numeric" class="cvc-input input" id="cvc-input" placeholder="e.g. 123" onkeyup="copyCVC(this)">
             <p class="month-error error-msg" id="month-error-msg"></p>
             <p class="year-error error-msg" id="year-error-msg"></p>
             <p class="cvc-error error-msg" id="cvc-error-msg"></p>

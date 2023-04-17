@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const form = document.querySelector(".form-state");
 const completedState = document.querySelector(".completed-state");
 const cardholderInput = document.querySelector(".cardholder-input");
@@ -6,6 +7,31 @@ const expdateMonthInput = document.querySelector(".expdate-month-input");
 const expdateYearInput = document.querySelector(".expdate-year-input");
 const cvcInput = document.querySelector(".cvc-input");
 let error = false;
+
+function copyCardholder(input)
+{
+  document.getElementById("card-holder").textContent = input.value;
+}
+
+function copyCardnumber(input)
+{
+  document.getElementById("card-number").textContent = input.value;
+}
+
+function copyMonth(input)
+{
+  document.getElementById("month").textContent = input.value;
+}
+
+function copyYear(input)
+{
+  document.getElementById("year").textContent = input.value;
+}
+
+function copyCVC(input)
+{
+  document.getElementById("cvc").textContent = input.value;
+}
 
 function validateCardholder() {
   const cardholderErrorMessage = document.getElementById(
