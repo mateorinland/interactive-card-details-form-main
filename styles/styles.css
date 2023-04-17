@@ -225,12 +225,14 @@ body {
     font-size: 0.9rem;
   }
 }
-.exp-date, .cvc {
+.exp-date,
+.cvc {
   font-size: 0.6rem;
 }
 
 @media screen and (min-width: 62.5rem) {
-  .exp-date, .cvc {
+  .exp-date,
+  .cvc {
     font-size: 0.9rem;
   }
 }
@@ -297,9 +299,22 @@ body {
   color: hsl(270, 3%, 87%);
 }
 
+.input.input-error {
+  border: 2px solid hsl(0, 100%, 66%);
+}
+
+.input.input-success {
+  border: 2px solid green;
+}
+
 .error-msg {
+  display: none;
   font-size: 0.75rem;
   color: hsl(0, 100%, 66%);
+}
+
+.error-msg.visible {
+  display: inline;
 }
 
 .form-bottom {
