@@ -31,92 +31,36 @@ function containsOnlyNumbers(str) {
   return /^\d+$/.test(str);
 }
 
-function validateCardnumber() {
-  const cardnumberErrorMessage = document.getElementById(
-    "cardnumber-error-msg"
-  );
+function validateNumberInput(input, errorMsgID) {
+  const errorMessage = document.getElementById(errorMsgID);
 
-  if (cardnumberInput.value.length === 0) {
-    cardnumberErrorMessage.classList.add("visible");
-    cardnumberErrorMessage.textContent = "Can't be blank";
-    cardnumberInput.classList.add("input-error");
+  if (input.value.length === 0) {
+    errorMessage.classList.add("visible");
+    errorMessage.textContent = "Can't be blank";
+    input.classList.add("input-error");
     error = true;
-  } else if (!containsOnlyNumbers(cardnumberInput.value)) {
-    cardnumberErrorMessage.classList.add("visible");
-    cardnumberErrorMessage.textContent = "Wrong format, numbers only";
-    cardnumberInput.classList.add("input-error");
+  } else if (!containsOnlyNumbers(input.value)) {
+    errorMessage.classList.add("visible");
+    errorMessage.textContent = "Wrong format, numbers only";
+    input.classList.add("input-error");
     error = true;
   } else {
-    cardnumberInput.classList.add("input-success");
+    input.classList.add("input-success");
   }
 
   setInterval(() => {
-    cardnumberErrorMessage.classList.remove("visible");
-    cardnumberInput.classList.remove("input-error", "input-success");
-  }, 5000);
-}
-
-function validateExpdateMonth() {
-  const monthErrorMessage = document.getElementById("month-error-msg");
-
-  if (expdateMonthInput.value.length === 0) {
-    monthErrorMessage.classList.add("visible");
-    monthErrorMessage.textContent = "Can't be blank";
-    expdateMonthInput.classList.add("input-error");
-    error = true;
-  } else {
-    expdateMonthInput.classList.add("input-success");
-  }
-
-  setInterval(() => {
-    monthErrorMessage.classList.remove("visible");
-    expdateMonthInput.classList.remove("input-error", "input-success");
-  }, 5000);
-}
-
-function validateExpdateYear() {
-  const yearErrorMessage = document.getElementById("year-error-msg");
-
-  if (expdateYearInput.value.length === 0) {
-    yearErrorMessage.classList.add("visible");
-    yearErrorMessage.textContent = "Can't be blank";
-    expdateYearInput.classList.add("input-error");
-    error = true;
-  } else {
-    expdateYearInput.classList.add("input-success");
-  }
-
-  setInterval(() => {
-    yearErrorMessage.classList.remove("visible");
-    expdateYearInput.classList.remove("input-error", "input-success");
-  }, 5000);
-}
-
-function validateCVC() {
-  const cvcErrorMessage = document.getElementById("cvc-error-msg");
-
-  if (cvcInput.value.length === 0) {
-    cvcErrorMessage.classList.add("visible");
-    cvcErrorMessage.textContent = "Can't be blank";
-    cvcInput.classList.add("input-error");
-    error = true;
-  } else {
-    cvcInput.classList.add("input-success");
-  }
-
-  setInterval(() => {
-    cvcErrorMessage.classList.remove("visible");
-    cvcInput.classList.remove("input-error", "input-success");
+    errorMessage.classList.remove("visible");
+    input.classList.remove("input-error", "input-success");
   }, 5000);
 }
 
 function handleSubmit(e) {
-  validateCardholder();
-  validateCardnumber();
-  validateExpdateMonth();
-  validateExpdateYear();
-  validateCVC();
   e.preventDefault();
+  validateCardholder();
+  validateNumberInput(cardnumberInput, "cardnumber-error-msg");
+  validateNumberInput(expdateMonthInput, "month-error-msg");
+  validateNumberInput(expdateYearInput, "year-error-msg");
+  validateNumberInput(cvcInput, "cvc-error-msg");
   if (!error) {
     completedState.classList.add("show");
     form.classList.add("hide");
