@@ -65,7 +65,7 @@ function validateNumberInput(input, errorMsgID) {
     errorMessage.textContent = "Can't be blank";
     input.classList.add("input-error");
     error = true;
-  } else if (!containsOnlyNumbers(input.value)) {
+  } else if (!containsOnlyNumbers(input.value.replaceAll(" ", ""))) {
     errorMessage.classList.add("visible");
     if(input.id === "expdate-year-input" || input.id === "expdate-month-input") {
       errorMessage.textContent = "Number only";
