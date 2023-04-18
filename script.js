@@ -67,7 +67,11 @@ function validateNumberInput(input, errorMsgID) {
     error = true;
   } else if (!containsOnlyNumbers(input.value)) {
     errorMessage.classList.add("visible");
-    errorMessage.textContent = "Wrong format, numbers only";
+    if(input.id === "expdate-year-input" || input.id === "expdate-month-input") {
+      errorMessage.textContent = "Number only";
+    } else {
+      errorMessage.textContent = "Wrong format, numbers only";
+    }
     input.classList.add("input-error");
     error = true;
   } else {

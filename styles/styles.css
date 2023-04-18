@@ -262,7 +262,6 @@ body {
 
 /* Form State */
 .form-state {
-  padding: 1rem;
   color: hsl(278, 68%, 11%);
 }
 
@@ -275,6 +274,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0;
 }
 
 .label {

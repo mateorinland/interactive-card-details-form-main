@@ -184,7 +184,6 @@ body {
 /* Form State */
 
 .form-state {
-  padding: 1rem;
   color: $Very_dark_violet;
 }
 
@@ -197,6 +196,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  padding: 0;
 }
 
 .label {

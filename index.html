@@ -43,19 +43,19 @@
           </div>
           <div class="form-group">
             <label for="cardnumber-input" class="cardnumber-label label">Card Number</label>
-            <input type="text" inputmode="numeric" class="cardnumber-input input" id="cardnumber-input" placeholder="e.g. 1234 5678 9123 0000" onkeyup="copyCardnumber(this)">
+            <input class="cardnumber-input input" id="cardnumber-input" type="text" inputmode="numeric" placeholder="e.g. 1234 5678 9123 0000" onkeyup="copyCardnumber(this)">
             <p class="error-msg" id="cardnumber-error-msg"></p>
           </div>
           <div class="form-bottom">
             <fieldset class="expdate-container fieldset">
               <legend class="expdate-legend">Exp. Date (MM/YY)</legend>
               <label for="expdate-month-input" class="expdate-month-label label visually-hidden" aria-label="Expiration Date Month"></label>
-              <input type="text" inputmode="numeric" class="expdate-month-input input" id="expdate-month-input" placeholder="MM" onkeyup="copyMonth(this)">
+              <input class="expdate-month-input input" id="expdate-month-input" type="text" inputmode="numeric" placeholder="MM" onkeyup="copyMonth(this)">
               <label for="expdate-year-input" class="expdate-year-label label visually-hidden" aria-label="Expiration Date Year"></label>
-              <input type="text" inputmode="numeric" class="expdate-year-input input" id="expdate-year-input" placeholder="YY" onkeyup="copyYear(this)">
+              <input class="expdate-year-input input" id="expdate-year-input" type="text" inputmode="numeric" placeholder="YY" onkeyup="copyYear(this)">
             </fieldset>
             <label for="cvc-input" class="cvc-label label">CVC</label>
-            <input type="text" inputmode="numeric" class="cvc-input input" id="cvc-input" placeholder="e.g. 123" onkeyup="copyCVC(this)">
+            <input class="cvc-input input" id="cvc-input" type="text" inputmode="numeric" placeholder="e.g. 123" onkeyup="copyCVC(this)">
             <p class="month-error error-msg" id="month-error-msg"></p>
             <p class="year-error error-msg" id="year-error-msg"></p>
             <p class="cvc-error error-msg" id="cvc-error-msg"></p>
