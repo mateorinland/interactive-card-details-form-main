@@ -55,7 +55,7 @@
               <input class="expdate-year-input input" id="expdate-year-input" type="text" inputmode="numeric" placeholder="YY" onkeyup="copyYear(this)">
             </fieldset>
             <label for="cvc-input" class="cvc-label label">CVC</label>
-            <input class="cvc-input input" id="cvc-input" type="text" inputmode="numeric" placeholder="e.g. 123" onkeyup="copyCVC(this)">
+            <input class="cvc-input input" id="cvc-input" type="text" inputmode="numeric" pattern="([0-9][0-9][0-9])" placeholder="e.g. 123" onkeyup="copyCVC(this)">
             <p class="month-error error-msg" id="month-error-msg"></p>
             <p class="year-error error-msg" id="year-error-msg"></p>
             <p class="cvc-error error-msg" id="cvc-error-msg"></p>
