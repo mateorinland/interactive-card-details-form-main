@@ -176,7 +176,7 @@ body {
   grid-area: card-front;
   z-index: 1;
   border-radius: 0.75rem;
-  box-shadow: 0.3rem 0.3rem 0.5rem hsl(270, 3%, 87%);
+  box-shadow: 0.3rem 0.3rem 0.5rem hsla(278, 68%, 11%, 0.1);
 }
 
 @media screen and (min-width: 71rem) {
@@ -251,6 +251,7 @@ body {
   grid-column: 2/4;
   grid-row: 1/4;
   border-radius: 0.75rem;
+  box-shadow: 0.2rem 0.2rem 0.5rem hsla(278, 68%, 11%, 0.1);
 }
 
 @media screen and (min-width: 71rem) {
