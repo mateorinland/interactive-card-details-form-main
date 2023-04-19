@@ -90,6 +90,8 @@ body {
   padding: 1rem;
   grid-area: card-front;
   z-index: 1;
+  border-radius: 0.75rem;
+  box-shadow: 0.3rem 0.3rem 0.5rem $Light_grayish_violet;
 }
 
 @media screen and (min-width: 71rem) {
@@ -168,6 +170,7 @@ body {
   padding: 2.5rem;
   grid-column: 2 / 4;
   grid-row: 1 / 4;
+  border-radius: 0.75rem;
 }
 
 @media screen and (min-width: 71rem) {
@@ -179,6 +182,7 @@ body {
 
 .form-container {
   grid-area: form-container;
+  max-width: 22rem;
 }
 
 /* Form State */
@@ -273,7 +277,8 @@ body {
 
 @media screen and (min-width: 71rem) {
   .expdate-month-input {
-    width: 5rem;
+    width: 4.5rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -284,7 +289,8 @@ body {
 
 @media screen and (min-width: 71rem) {
   .expdate-year-input {
-    width: 5rem;
+    width: 4.5rem;
+    margin-right: 0.5rem;
   }
 }
 
@@ -295,7 +301,7 @@ body {
 
 @media screen and (min-width: 71rem) {
   .cvc-input {
-    width: 13rem;
+    width: 11.5rem;
   }
 }
 
@@ -314,7 +320,7 @@ body {
 .btn {
   border: none;
   border-radius: 0.5rem;
-  padding-block: 0.5rem;
+  padding-block: 0.7rem;
   background-color: $Very_dark_violet;
   color: $White;
   width: 100%;
